@@ -1,0 +1,30 @@
+{
+    "name": "razlet/sender",
+    "version": "1.0",
+    "description": "Just small lib for sending requests",
+    "homepage": "http://razlet.ru/",
+    "authors": [
+        {
+            "name": "seyfer",
+            "email": "seyferseed@mail.ru",
+            "homepage": "http://seyferseed.ru",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "zendframework/zend-http": "2.3.*",
+        "zendframework/zend-stdlib": "2.3.*"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.zendframework.com/"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Sender\\": "src/"
+        }
+    }
+}
