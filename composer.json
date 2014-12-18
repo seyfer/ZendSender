@@ -1,5 +1,5 @@
 {
-    "name": "razlet/sender",
+    "name": "razlet/zend-sender",
     "version": "1.0",
     "description": "Just small lib for sending requests",
     "homepage": "http://razlet.ru/",
