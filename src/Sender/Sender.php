@@ -42,18 +42,21 @@ class Sender implements SenderInterface
     public function setAcceptJson()
     {
         $this->setAcceptType("application/json");
+
         return $this;
     }
 
     public function setContentTypeJson()
     {
         $this->setContentType('application/json');
+
         return $this;
     }
 
     public function setContentTypeForm()
     {
         $this->setContentType('application/x-www-form-urlencoded; charset=UTF-8');
+
         return $this;
     }
 
@@ -61,6 +64,7 @@ class Sender implements SenderInterface
      *
      * @param string $url
      * @param array|string $data
+     *
      * @return string
      * @throws \Exception
      */
@@ -88,6 +92,7 @@ class Sender implements SenderInterface
     /**
      *
      * @param string $json
+     *
      * @return \Zend\Http\Request
      */
     protected function prepareJsonRequest($json)
@@ -97,9 +102,9 @@ class Sender implements SenderInterface
         $jsonRequest->setContent($json);
         $jsonRequest->setUri($this->url);
         $jsonRequest->getHeaders()->addHeaders([
-            'Content-Type' => $this->contentType,
-            'Accept'       => $this->contentType,
-        ]);
+                                                   'Content-Type' => $this->contentType,
+                                                   'Accept'       => $this->contentType,
+                                               ]);
 
         return $jsonRequest;
     }
@@ -107,10 +112,11 @@ class Sender implements SenderInterface
     /**
      *
      * @param \Zend\Stdlib\Parameters|array $post
+     *
      * @return string
      * @throws \Auth\Model\Exception
      */
-    public function sendPost($url, $post = array())
+    public function sendPost($url, $post = [])
     {
         $this->url = $url;
 
@@ -131,6 +137,7 @@ class Sender implements SenderInterface
     /**
      *
      * @param array|\Zend\Stdlib\Parameters $post
+     *
      * @return \Zend\Stdlib\Parameters
      */
     private function prepareParameters($post)
@@ -139,7 +146,7 @@ class Sender implements SenderInterface
             if (is_array($post)) {
                 $post = new Parameters($post);
             } else {
-                $post = new Parameters((array) $post);
+                $post = new Parameters((array)$post);
             }
         }
 
@@ -149,6 +156,7 @@ class Sender implements SenderInterface
     /**
      *
      * @param \Zend\Stdlib\Parameters $post
+     *
      * @return \Zend\Http\Request
      */
     private function preparePostRequest(Parameters $post)
@@ -158,8 +166,8 @@ class Sender implements SenderInterface
         $postRequest->setPost($post);
         $postRequest->setUri($this->url);
         $postRequest->getHeaders()->addHeaders([
-            'Content-Type' => $this->contentType
-        ]);
+                                                   'Content-Type' => $this->contentType
+                                               ]);
 
         return $postRequest;
     }
@@ -168,11 +176,12 @@ class Sender implements SenderInterface
      *
      * @param string $url
      * @param array $query
+     *
      * @return string
      * @throws Exception
      * @throws \InfoClient\Exception
      */
-    public function sendGet($url, $query = array())
+    public function sendGet($url, $query = [])
     {
         $this->url = $url;
 
@@ -193,6 +202,7 @@ class Sender implements SenderInterface
     /**
      *
      * @param \Zend\Stdlib\Parameters $query
+     *
      * @return \Zend\Http\Request
      */
     private function prepareGetRequest(Parameters $query)
@@ -204,9 +214,9 @@ class Sender implements SenderInterface
         $getRequest->setQuery($query);
 
         if ($this->acceptType) {
-            $getRequest->getHeaders()->addHeaders(array(
-                "Accept" => $this->acceptType
-            ));
+            $getRequest->getHeaders()->addHeaders([
+                                                      "Accept" => $this->acceptType
+                                                  ]);
         }
 
         return $getRequest;
@@ -226,5 +236,14 @@ class Sender implements SenderInterface
         $uri = $getRequest->getUri();
         \Zend\Debug\Debug::dump($uri);
     }
+
+    /**
+     * @return Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
 
 }
