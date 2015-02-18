@@ -19,9 +19,9 @@ interface SenderInterface
 
     public function setContentTypeJson();
 
-    public function sendPost($url, $post = array());
+    public function sendPost($url, $post = []);
 
-    public function sendGet($url, $query = array());
+    public function sendGet($url, $query = []);
 
     public function sendJson($url, $data);
 }
