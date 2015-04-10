@@ -1,6 +1,5 @@
 # Composer files
 composer.phar
-composer.lock
 vendor/
 
 # Local configs
@@ -15,3 +14,4 @@ data/cache/
 data/sessions/
 data/tmp/
 temp/
+.idea/

@@ -259,8 +259,7 @@ class Sender implements SenderInterface
      * @param string $url
      * @param array  $query
      * @return string
-     * @throws Exception
-     * @throws \InfoClient\Exception
+     * @throws \Exception
      */
     public function sendGet($url, $query = [])
     {
