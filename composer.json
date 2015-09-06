@@ -1,8 +1,8 @@
 {
-  "name": "razlet/zend-sender",
+  "name": "seyfer/zend-sender",
   "version": "1.0",
   "description": "Just small lib for sending requests",
-  "homepage": "http://razlet.ru/",
+  "homepage": "http://seyferseed.ru/",
   "authors": [
     {
       "name": "seyfer",
@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": ">=5.4",
-    "zendframework/zendframework": ">=2.3"
+    "zendframework/zendframework": ">=2.4"
   },
   "repositories": [
     {
