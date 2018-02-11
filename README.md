@@ -1,3 +1,3 @@
 # README #
 
-Zend2 small lib to send requests
+ZF2 small lib for sending requests
