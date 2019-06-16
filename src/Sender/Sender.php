@@ -135,7 +135,7 @@ class Sender implements SenderInterface
 
     /**
      *
-     * @param string       $url
+     * @param string $url
      * @param array|string $data
      * @return string
      * @throws \Exception
@@ -143,7 +143,7 @@ class Sender implements SenderInterface
     public function sendJson($url, $data)
     {
         $this->url = $url;
-        $json      = json_encode($data);
+        $json = json_encode($data);
 
         if ($this->contentType != EnumContentType::JSON) {
             $this->setContentTypeJson();
@@ -153,7 +153,7 @@ class Sender implements SenderInterface
 
         try {
             $response = $this->client->send($postRequest);
-            $result   = $response->getBody();
+            $result = $response->getBody();
 
             return $result;
         } catch (\Exception $exc) {
@@ -173,9 +173,9 @@ class Sender implements SenderInterface
         $jsonRequest->setContent($json);
         $jsonRequest->setUri($this->url);
         $jsonRequest->getHeaders()->addHeaders([
-                                                   'Content-Type' => $this->contentType,
-                                                   'Accept'       => $this->contentType,
-                                               ]);
+            'Content-Type' => $this->contentType,
+            'Accept' => $this->contentType,
+        ]);
 
         return $jsonRequest;
     }
@@ -190,13 +190,13 @@ class Sender implements SenderInterface
     public function sendPost($url, $post = [])
     {
         $this->url = $url;
-        $post      = $this->prepareParameters($post);
+        $post = $this->prepareParameters($post);
 
         $postRequest = $this->preparePostRequest($post);
 
         try {
             $response = $this->client->send($postRequest);
-            $result   = $response->getBody();
+            $result = $response->getBody();
 
             return $result;
         } catch (\Exception $exc) {
@@ -234,8 +234,8 @@ class Sender implements SenderInterface
         $postRequest->setPost($post);
         $postRequest->setUri($this->url);
         $postRequest->getHeaders()->addHeaders([
-                                                   'Content-Type' => $this->contentType
-                                               ]);
+            'Content-Type' => $this->contentType,
+        ]);
 
         return $postRequest;
     }
@@ -257,20 +257,20 @@ class Sender implements SenderInterface
     /**
      *
      * @param string $url
-     * @param array  $query
+     * @param array $query
      * @return string
      * @throws \Exception
      */
     public function sendGet($url, $query = [])
     {
         $this->url = $url;
-        $query     = $this->prepareParameters($query);
+        $query = $this->prepareParameters($query);
 
         $getRequest = $this->prepareGetRequest($query);
 
         try {
             $response = $this->client->send($getRequest);
-            $result   = $response->getBody();
+            $result = $response->getBody();
 
             return $result;
         } catch (\Exception $exc) {
@@ -293,8 +293,8 @@ class Sender implements SenderInterface
 
         if ($this->acceptType) {
             $getRequest->getHeaders()->addHeaders([
-                                                      "Accept" => $this->acceptType
-                                                  ]);
+                "Accept" => $this->acceptType,
+            ]);
         }
 
         return $getRequest;

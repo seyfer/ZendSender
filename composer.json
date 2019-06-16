@@ -1,29 +1,29 @@
 {
-  "name": "seyfer/zend-sender",
-  "version": "1.0",
-  "description": "Just small lib for sending requests",
-  "homepage": "http://seyferseed.ru/",
-  "authors": [
-    {
-      "name": "seyfer",
-      "email": "seyferseed@mail.ru",
-      "homepage": "http://seyferseed.ru",
-      "role": "Developer"
+    "name": "seyfer/zend-sender",
+    "version": "1.0",
+    "description": "Just small lib for sending requests",
+    "homepage": "http://seyferseed.ru/",
+    "authors": [
+        {
+            "name": "seyfer",
+            "email": "seyferseed@mail.ru",
+            "homepage": "http://seyferseed.ru",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "zendframework/zendframework": "~2.5.3"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.zendframework.com/"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Sender\\": "src/"
+        }
     }
-  ],
-  "require": {
-    "php": ">=5.4",
-    "zendframework/zendframework": ">=2.4"
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://packages.zendframework.com/"
-    }
-  ],
-  "autoload": {
-    "psr-0": {
-      "Sender\\": "src/"
-    }
-  }
 }
